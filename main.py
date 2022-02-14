@@ -1,6 +1,6 @@
 from __future__ import unicode_literals
 import os
-from flask import Flask, request, abort
+from flask import Flask, request, abort, jsonify
 from linebot import LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError
 
@@ -13,6 +13,9 @@ line_bot_api = LineBotApi(
     'xYCsNc5Y1TuoZ3bNc7I2NA/3q2ranP+PVXLw3NYfzR6oVZZZt0HpXwMx5xiIXL/l/CcTnmbfdLzSNK+pamj4o6Hp57DRHfYRPJFVRiFVJ3GXiJgwwD7K5KqtT33ghT8Ur3J+2t18bHPhHxiPGd7AwwdB04t89/1O/w1cDnyilFU=')
 handler = WebhookHandler('f24522c4332ab6a8f2e20cf21cc86498')
 
+@app.route('/test', methods=['GET'])
+def foo():
+    return jsonify({"QQ":"QQ"})
 
 # 接收 LINE 的資訊
 @app.route("/callback", methods=['POST'])
